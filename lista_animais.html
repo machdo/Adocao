@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Animais - AdotePet</title>
+    <meta name="description" content="Veja todos os animais disponíveis para adoção em nossa plataforma.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span>AdotePet</span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-heart"></i>
+                    <span>Início</span>
+                </a>
+                <a href="cdst_padrinho.html" class="nav-link">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Cadastrar Padrinho</span>
+                </a>
+                <a href="lista_padrinhos.html" class="nav-link">
+                    <i class="fas fa-users"></i>
+                    <span>Lista Padrinhos</span>
+                </a>
+                <a href="cdst_animal.html" class="nav-link">
+                    <i class="fas fa-dog"></i>
+                    <span>Cadastrar Animal</span>
+                </a>
+                <a href="lista_animais.html" class="nav-link active">
+                    <i class="fas fa-list"></i>
+                    <span>Lista Animais</span>
+                </a>
+                <a href="apadrinhamento.html" class="nav-link">
+                    <i class="fas fa-code-branch"></i>
+                    <span>Apadrinhamento</span>
+                </a>
+                <a href="lista_apadrinhados.html" class="nav-link">
+                    <i class="fas fa-heart"></i>
+                    <span>Apadrinhados</span>
+                </a>
+            </div>
+            
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="list-section">
+            <div class="container">
+                <div class="list-header">
+                    <div class="form-icon">
+                        <i class="fas fa-dog"></i>
+                    </div>
+                    <h1 class="form-title">Lista de Animais</h1>
+                    <p class="form-description" id="animais-subtitle">
+                        Carregando animais disponíveis...
+                    </p>
+                </div>
+
+                <div class="list-actions">
+                    <a href="cdst_animal.html" class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Cadastrar Novo Animal
+                    </a>
+                </div>
+
+                <div id="animais-container">
+                    <div style="text-align: center; padding: 3rem;">
+                        <i class="fas fa-spinner fa-spin" style="font-size: 3rem; color: var(--muted-foreground);"></i>
+                        <p style="margin-top: 1rem; color: var(--muted-foreground); font-size: 1.125rem;">Carregando animais...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Update subtitle with count
+        const animais = adocaoSystem.getAnimais();
+        const subtitle = document.getElementById('animais-subtitle');
+        if (subtitle) {
+            subtitle.textContent = `${animais.length} animal${animais.length !== 1 ? 'is' : ''} disponível${animais.length !== 1 ? 'is' : ''} para adoção`;
+        }
+    </script>
+</body>
+</html
